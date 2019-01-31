@@ -2,7 +2,13 @@
   "name": "testing-i",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
   "repository": "https://github.com/alasalle/testing-i.git",
   "author": "alasalle <angela.lasalle91@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
 }
