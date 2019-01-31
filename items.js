@@ -34,7 +34,7 @@ const armor = {
     originalName: "Steel Cuirass of Binding Memories",
     name: "[PEN] Steel Cuirass of Binding Memories",
     type: "armor",
-    durability: 100,
+    durability: 50,
     enhancement: 20
   },
   chestGuard: {
