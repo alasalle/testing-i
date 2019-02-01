@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch --verbose"
   },
   "repository": "https://github.com/alasalle/testing-i.git",
   "author": "alasalle <angela.lasalle91@gmail.com>",

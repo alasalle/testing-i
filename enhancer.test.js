@@ -49,12 +49,12 @@ describe("the enhancer module", () => {
     const result13 = fail(crossbow);
     const result14 = () => fail(spear);
 
-    test("throws error when trying to fail lvl 5 or lower armor", () => {
+    test("throws error when trying to fail lvl 4 or lower armor", () => {
       expect(
         result12
       ).toThrow()
     })
-    test("throws error when trying to fail lvl 7 or lower weapon", () => {
+    test("throws error when trying to fail lvl 6 or lower weapon", () => {
       expect(
         result14
       ).toThrow()
@@ -70,8 +70,8 @@ describe("the enhancer module", () => {
       expect(result9.durability).toEqual(0)
     })
     test("decreases item's enhancement level by 1 if it is lvl 16 or greater", () => {
-      expect(result9.enhancement).toEqual(17)
-      expect(result11.durability).toEqual(19)
+      // expect(result9.enhancement).toEqual(17)
+      expect(result11.enhancement).toEqual(19)
     })
     test("updates name if enhancement lvl was decreased", () => {
       expect(result9.name).toEqual("[DUO] Solarflare")
