@@ -116,5 +116,10 @@ module.exports = {
     }
   },
 
-  repair: item => {}
+  repair: item => {
+    return {
+      ...item,
+      durability: 100
+    }
+  }
 };
