@@ -19,6 +19,20 @@ const weapons = {
     type: "weapon",
     durability: 0,
     enhancement: 18
+  },
+  crossbow: {
+    originalName: "SolarReign",
+    name: "[+10] SolarReign",
+    type: "weapon",
+    durability: 100,
+    enhancement: 10
+  },
+  spear: {
+    originalName: "TrueArc",
+    name: "[+2] TrueArc",
+    type: "weapon",
+    durability: 100,
+    enhancement: 2
   }
 };
 
