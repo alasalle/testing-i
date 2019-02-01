@@ -40,60 +40,79 @@ module.exports = {
 
   fail: item => {
     const lvl = item.enhancement - 1;
+     const enhancementName = levels[lvl];
 
-    if (item.enhancement <= 14) {
-      if (item.type === "armor" && item.enhancement <= 4) {
-        throw new Error("level 4 and lower armor cannot fail enhancement");
-      } else if (item.type === "weapon" && item.enhancement <= 6) {
-        throw new Error("level 6 and lower weapon cannot fail enhancement");
-      } else if (item.durability >= 25) {
-        return {
-          ...item,
-          durability: item.durability - 5
-        };
-      } else {
-        return {
-          ...item
-        };
+    if (item.type === "armor" && item.enhancement <= 4) {
+      throw new Error("lvl 4 or lower armor cannot fail enhancement")
+    }
+
+    if (item.type === "weapon" && item.enhancement <= 6) {
+      throw new Error("level 6 or lower weapons cannot fail enhancement")
+    }
+
+    if (4 < item.enhancement && item.enhancement < 15 && item.type === "armor" && item.durability >= 25) {
+      return {
+        ...item,
+        durability: item.durability - 5
       }
-    } else if (14 < item.enhancement <= 19) {
-      if (15 <= item.enhancement <= 16) {
-        if (item.durability >= 10) {
-          return {
-            ...item,
-            durability: item.durability - 10
-          };
-        } else {
-          return {
-            ...item
-          };
-        }
-      } else {
-        if (item.durability >= 10) {
-          const enhancementName = levels[lvl];
-          return {
-            ...item,
-            durability: item.durability - 10,
-            enhancement: lvl,
-            name: `[${enhancementName}] ${item.originalName}`
-          };
-        } else {
-          const enhancementName = levels[lvl];
-          return {
-            ...item,
-            enhancement: lvl,
-            name: `[${enhancementName}] ${item.originalName}`
-          }
-        }
+    }
+
+    if (4 < item.enhancement && item.enhancement < 15 && item.type === "armor" && item.durability < 25) {
+      return {
+        ...item
       }
-    } else {
-      const enhancementName = levels[lvl];
+    }
+
+    if (6 < item.enhancement && item.enhancement < 15 && item.type === "weapon" && item.durability >= 25) {
+      return {
+        ...item,
+        durability: item.durability - 5
+      }
+    }
+
+    if (6 < item.enhancement && item.enhancement < 15 && item.type === "weapon" && item.durability < 25) {
+      return {
+        ...item
+      }
+    }
+
+    if (14 < item.enhancement && item.enhancement < 17 && item.durability >= 10) {
+      return {
+        ...item,
+        durability: item.durability - 10
+      }
+    }
+
+    if (14 < item.enhancement && item.enhancement < 17 && item.durability < 10) {
+      return {
+        ...item
+      }
+    }
+
+    if (16 < item.enhancement && item.enhancement < 20 && item.durability >= 10) {
       return {
         ...item,
         durability: item.durability - 10,
         enhancement: lvl,
         name: `[${enhancementName}] ${item.originalName}`
-      };
+      }
+    }
+
+    if (16 < item.enhancement && item.enhancement < 20 && item.durability < 10) {
+      return {
+        ...item,
+        enhancement: lvl,
+        name: `[${enhancementName}] ${item.originalName}`
+      }
+    }
+
+    if (item.enhancement === 20) {
+      return {
+        ...item,
+        durability: item.durability - 10,
+        enhancement: lvl,
+        name: `[${enhancementName}] ${item.originalName}`
+      }
     }
   },
 
